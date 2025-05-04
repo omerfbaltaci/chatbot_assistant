@@ -1,43 +1,41 @@
-from veri_seti import veri_seti
-import nltk
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import string
+from sentence_transformers import SentenceTransformer, util
+from data import dataset as data
 
-nltk.download('punkt')
-nltk.download('stopwords')
-from nltk.corpus import stopwords
+# After preparing the questions in my dataset as a list, I used the MiniLM-L12 model to vectorize this list and 
+# compare it more consistently with user input. Also i saved these embeddings as a PyTorch tensor instead of Numpy
+# array, that makes them much more useful for future.
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L12-v2')
+questions = list(data.keys())
+question_embeddings = model.encode(questions, convert_to_tensor = True)
 
-stop_words = set(stopwords.words('turkish'))
-
-# Veriseti zaten yüklü, ilk satırda import ettim.
-
-def temizle(metin):
-    metin = metin.lower().translate(str.maketrans('', '', string.punctuation))
-    kelimeler = metin.split()
-    kelimeler = [kelime for kelime in kelimeler if kelime not in stop_words]
-    return ' '.join(kelimeler)
-
-
-def chatbot(kullanici_sorusu):
-    temiz_soru = temizle(kullanici_sorusu)
-    sorular = [temizle(item["question"]) for item in veri_seti]
-
-    vectorizer = TfidfVectorizer()
-    tfidf = vectorizer.fit_transform(sorular + [temiz_soru])
-
-    benzerlikler = cosine_similarity(tfidf[-1], tfidf[:-1])
-    en_yakin_index = benzerlikler.argmax()
-    en_yuksek_benzerlik = benzerlikler[0][en_yakin_index]
-
-    if en_yuksek_benzerlik > 0.4:
-        return veri_seti[en_yakin_index]["answer"]
+def chatbot(user_input):
+    # I do the same vectorization process as above for the user input. Then I compare the vector versions of the 
+    # user input with the questions in the dataset and save the similarity scores as a list in "similarities".
+    input_embedding = model.encode(user_input, convert_to_tensor = True)
+    similarities = util.pytorch_cos_sim(input_embedding, question_embeddings)[0]
+    
+    # Then, I save the index of the question with the highest similarity score in the data set as 
+    # "best_guess_index" in the list, and this time I save only the similarity score of this question to the 
+    # "best_score" variable.
+    best_guess_index = similarities.argmax().item()
+    best_score = similarities[best_guess_index].item()
+    print(best_score) # The problem why the code not working is the embedding score is always too low.
+                      #Don't know why. It's always something like "0.10627515614032745" etc.
+    
+    # Here, if the score of the question with the highest similarity score is higher than the specified value, 
+    # the answer to this question is found from the dataset and printed on the screen. If the score is lower 
+    # than the specified value, the specified sentence is printed on the screen.
+    if best_score >= 0.4:
+        supposed_question = question_embeddings[best_guess_index]
+        return[supposed_question]
     else:
-        return "Sorulan soruya dair uygun bir yanıt bulunamadı."
-
-# Test
+        return "Sorulan soruya dair uygun yanıt bulunamadı.\n"
+    
+# Test loop
 while True:
-    giris = input("\nSorunuzu yazınız (çıkmak için 'çık'): ")
-    if giris.lower() == "çık":
+    test_user_input = input("Sorunuzu yazınız (çıkmak için 'çık'): ")
+
+    if test_user_input.lower() == 'çık':
         break
-    print("Chatbot:", chatbot(giris))
+
+    print("Chatbot:", chatbot(test_user_input))
