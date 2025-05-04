@@ -1,4 +1,3 @@
-````markdown
 # Acunmedya Akademi Chatbot
 
 A lightweight chatbot project developed to help students at Acunmedya Akademi quickly get answers to frequently asked questions using semantic similarity.
