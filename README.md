@@ -1,4 +1,3 @@
-````markdown
 # Acunmedya Akademi Chatbot
 
 A lightweight chatbot project developed to help students at Acunmedya Akademi quickly get answers to frequently asked questions using semantic similarity.
@@ -13,37 +12,48 @@ The initial version **did not use any embedding** or similarity calculation.
 Key enhancements in this version:
 
 - ✅ Integrated **MiniLM-L12** model from `sentence-transformers` for semantic understanding.
-- ✅ Embedded all questions using pre-trained language model for better representation.
+- ✅ Embedded all questions using a pre-trained language model for better semantic representation.
 - ✅ Applied **cosine similarity** to match user questions with dataset questions.
-- ✅ Much higher flexibility in recognizing varied question forms (paraphrases, rewordings, etc).
+- ✅ Higher flexibility in recognizing reworded or paraphrased student questions.
 
 ---
 
-## ⚙️ Installation & Usage
+## 🐳 Running with Docker (Recommended)
 
-!! At this version, there is a problem which causing embedding scores to be too low. Trying to fix. !!
+To ensure a consistent environment across different machines, you can run this chatbot using Docker.
 
-To get started with the project:
+### 🔧 Step-by-step Instructions
 
-1. Clone the repository or download the files manually.
-2. Make sure Python 3.7+ is installed.
-3. (Optional but recommended) Create and activate a virtual environment:
+1. **Clone the repository or download the source files manually.**
+
+2. **Make sure [Docker](https://www.docker.com/products/docker-desktop/) is installed on your system.**
+
+3. **Open a terminal in the project root folder (where `app.py` or `chatbot.py` and `requirements.txt` exist).**
+
+4. **Build the Docker image:**
 
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-    ````
+   docker build -t chatbot_assistant .
+   ```
 
-4. Install the required dependencies:
+5. **Run the Docker container interactively:**
+
+   ```bash
+   docker run -it chatbot_assistant
+   ```
+
+Or instead of building and running that Docker image, you can;
+
+1. **Download the required libraries**, by using:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-5. Run the chatbot using:
+2. **Run the chatbot.py while you are in the project folder** by using;
 
    ```bash
-   python chatbot.py
+   python3 chatbot.py
    ```
 
 ---
@@ -57,21 +67,21 @@ sentence-transformers
 torch
 ```
 
-Add any other packages you used (e.g., `nltk` if you still use some preprocessing features).
+If you use additional libraries like `nltk` for preprocessing, make sure they are also listed.
 
 ---
 
 ## 🔮 Future Plans
 
-This project is the foundation for a broader goal.
+This chatbot is the foundation for a broader goal.
 
 Planned enhancements:
 
-* Integration with **OpenAI API** for richer and more intelligent responses.
-* Developing a **web or mobile interface** for better accessibility.
-* Expanding the dataset to cover more diverse and detailed academic questions.
-* Deployment within the **Acunmedya Akademi** as an internal student support tool.
+- 🔗 Integration with **OpenAI API** for more advanced and intelligent responses.
+- 🖥️ Development of a **web or mobile interface** to make the chatbot more accessible.
+- 📚 Dataset expansion to cover more diverse and complex academic questions.
+- 🏫 Deployment within **Acunmedya Akademi** as a real-time student support tool.
 
-This chatbot is expected to evolve into a full-featured assistant tailored for educational environments.
+This project is expected to evolve into a powerful assistant tailored for educational environments.
 
 ---
