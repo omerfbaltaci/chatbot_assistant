@@ -4,7 +4,7 @@ A lightweight chatbot project developed to help students at Acunmedya Akademi qu
 
 ---
 
-## 🚀 What's New
+## What's New
 
 This is an improved version of the initial rule-based chatbot that only relied on simple keyword matching and NLTK preprocessing.  
 The initial version **did not use any embedding** or similarity calculation.
@@ -22,7 +22,7 @@ Key enhancements in this version:
 
 To ensure a consistent environment across different machines, you can run this chatbot using Docker.
 
-### 🔧 Step-by-step Instructions
+### Step-by-step Instructions
 
 1. **Clone the repository or download the source files manually.**
 
@@ -58,7 +58,7 @@ Or instead of building and running that Docker image, you can;
 
 ---
 
-## 📦 Example `requirements.txt`
+## Example `requirements.txt`
 
 Your `requirements.txt` should include:
 
@@ -71,16 +71,16 @@ If you use additional libraries like `nltk` for preprocessing, make sure they ar
 
 ---
 
-## 🔮 Future Plans
+## Future Plans
 
 This chatbot is the foundation for a broader goal.
 
 Planned enhancements:
 
-- 🔗 Integration with **OpenAI API** for more advanced and intelligent responses.
-- 🖥️ Development of a **web or mobile interface** to make the chatbot more accessible.
-- 📚 Dataset expansion to cover more diverse and complex academic questions.
-- 🏫 Deployment within **Acunmedya Akademi** as a real-time student support tool.
+- Integration with **OpenAI API** for more advanced and intelligent responses.
+- Development of a **web or mobile interface** to make the chatbot more accessible.
+- Dataset expansion to cover more diverse and complex academic questions.
+- Deployment within **Acunmedya Akademi** as a real-time student support tool.
 
 This project is expected to evolve into a powerful assistant tailored for educational environments.
 
