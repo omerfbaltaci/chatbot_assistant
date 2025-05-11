@@ -1,0 +1,7 @@
+[
+  {
+    "question": "yağmur koduna c# fonksiyonu eklemek istiyor. c#ta fonksiyon nasıl oluşturulur?",
+    "answer": "C#'ta fonksiyon (metot) oluşturmak için şu yapı kullanılır:\n\n```csharp\n// Basit bir fonksiyon örneği:\nstatic int Topla(int a, int b)\n{\n    return a + b;\n}\n\n// Kullanım:\nint sonuc = Topla(5, 3); // sonuc değişkeni 8 değerini alır.\n```\n\n**Açıklama:**\n\n*   `static`: (isteğe bağlı) Sınıfın bir örneği olmadan erişilebilen metotlar için kullanılır.\n*   `int`: Metotun geri dönüş tipini belirtir (bu örnekte integer). `void` geri dönüşü olmayan metotlar için kullanılır.\n*   `Topla`: Metot adı.\n*   `(int a, int b)`: Metotun parametreleri (girdileri). `a` ve `b` integer tipinde parametrelerdir.\n*   `{ ... }`: Metotun gövdesi (içinde yapılacak işlemler).\n*   `return a + b;`: Metotun sonucu döndürme ifadesi. `return` tipi, metotun geri dönüş tipiyle aynı olmalıdır.\n\nYağmur kodu projesine bu yapıyı kullanarak istediğin fonksiyonu ekleyebilirsin.\n",
+    "embedding_score": 0.7757079601287842
+  }
+]
