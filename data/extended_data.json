@@ -1,7 +1,27 @@
 [
   {
-    "question": "yağmur koduna c# fonksiyonu eklemek istiyor. c#ta fonksiyon nasıl oluşturulur?",
-    "answer": "C#'ta fonksiyon (metot) oluşturmak için şu yapı kullanılır:\n\n```csharp\n// Basit bir fonksiyon örneği:\nstatic int Topla(int a, int b)\n{\n    return a + b;\n}\n\n// Kullanım:\nint sonuc = Topla(5, 3); // sonuc değişkeni 8 değerini alır.\n```\n\n**Açıklama:**\n\n*   `static`: (isteğe bağlı) Sınıfın bir örneği olmadan erişilebilen metotlar için kullanılır.\n*   `int`: Metotun geri dönüş tipini belirtir (bu örnekte integer). `void` geri dönüşü olmayan metotlar için kullanılır.\n*   `Topla`: Metot adı.\n*   `(int a, int b)`: Metotun parametreleri (girdileri). `a` ve `b` integer tipinde parametrelerdir.\n*   `{ ... }`: Metotun gövdesi (içinde yapılacak işlemler).\n*   `return a + b;`: Metotun sonucu döndürme ifadesi. `return` tipi, metotun geri dönüş tipiyle aynı olmalıdır.\n\nYağmur kodu projesine bu yapıyı kullanarak istediğin fonksiyonu ekleyebilirsin.\n",
+    "question": "Ömer, C# dilindeki projesine bir fonksiyon eklemek istiyor. C# dilinde fonksiyonu nasıl oluşturabilir?",
+    "answer": "C#'ta fonksiyon (metot) oluşturmak için şu yapı kullanılır:\n\n```csharp\n// Basit bir fonksiyon örneği:\nstatic int Topla(int a, int b)\n{\n    return a + b;\n}\n\n// Kullanım:\nint sonuc = Topla(5, 3); // sonuc değişkeni 8 değerini alır.\n```\n\n**Açıklama:**\n\n*   `static`: (isteğe bağlı) Sınıfın bir örneği olmadan erişilebilen metotlar için kullanılır.\n*   `int`: Metotun geri dönüş tipini belirtir (bu örnekte integer). `void` geri dönüşü olmayan metotlar için kullanılır.\n*   `Topla`: Metot adı.\n*   `(int a, int b)`: Metotun parametreleri (girdileri). `a` ve `b` integer tipinde parametrelerdir.\n*   `{ ... }`: Metotun gövdesi (içinde yapılacak işlemler).\n*   `return a + b;`: Metotun sonucu döndürme ifadesi. `return` tipi, metotun geri dönüş tipiyle aynı olmalıdır.\n\nÖmer projesine bu yapıyı kullanarak istediği fonksiyonu ekleyebilir.\n",
     "embedding_score": 0.7757079601287842
+  },
+  {
+    "question": "Modelimde partial view nasıl oluştururum?",
+    "answer": "Şu anda dış API'ye erişilemedi. Lütfen daha sonra tekrar deneyin.",
+    "embedding_score": 0.7322888970375061
+  },
+  {
+    "question": "C# eklentilerini nasıl kurarım?",
+    "answer": "C# eklentileri genellikle NuGet paketleri aracılığıyla kurulur.\n1.  **Visual Studio'da:**\n    *   `Çözüm Gezgini`'nde projeye sağ tıklayın.\n    *   `NuGet Paketlerini Yönet`'i seçin.\n    *   `Gözat` sekmesinde eklentiyi arayın ve `Yükle`'ye tıklayın.\n2.  **.NET CLI ile:**\n    *   Proje dizininde komut istemini açın.\n    *   `dotnet add package [PaketAdı]` komutunu çalıştırın.\nKurulum tamamlandığında, eklenti projenize dahil edilmiş olur.",
+    "embedding_score": 0.8527870178222656
+  },
+  {
+    "question": "C#'ta this keyi ile this metodu arasındaki fark nedir?",
+    "answer": "*   **`this` anahtar kelimesi:** Bir sınıfın mevcut örneğine referans verir. Alanlara, özelliklere ve metotlara erişmek için kullanılır.\n*   **`this()` metodu:** Bir sınıfın yapıcı metodunu, aynı sınıftaki başka bir yapıcı metottan çağırmak için kullanılır. Yapıcı metod zincirlemesi sağlar.",
+    "embedding_score": 0.7654812335968018
+  },
+  {
+    "question": " MVC 4 ile MVC 5 arasındaki fark nedir?",
+    "answer": "Şu anda dış API'ye erişilemedi. Lütfen daha sonra tekrar deneyin.",
+    "embedding_score": 0.7688606381416321
   }
 ]
