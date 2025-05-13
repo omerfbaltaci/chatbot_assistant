@@ -1,12 +1,18 @@
-import google.generativeai as genai
 from src.config import API_KEY
+from openai import OpenAI
 
-genai.configure(api_key=API_KEY)
+client = OpenAI(api_key=API_KEY)
 
 def ask_llm(question):
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash')
-        response = model.generate_content(question)
-        return response.text
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": "Bir C#, .NET, .NET Core asistanı olarak kısa ve öz cevaplar ver. Başka bir konuda soru sorulursa cevap verme"},
+                {"role": "user", "content": question}
+            ]
+        )
+        return response.choices[0].message.content.strip()
     except Exception as e:
         return f"API hatası: {e}"

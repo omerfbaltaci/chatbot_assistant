@@ -33,5 +33,22 @@
     "question": "MVC5 sonrasında MVC6 gelecek mi?",
     "answer": "MVC 5'ten sonra MVC 6 gelmedi. Onun yerine ASP.NET Core MVC geldi. ASP.NET Core MVC, MVC 6'nın evrimleşmiş ve yeniden tasarlanmış halidir.\n",
     "embedding_score": 0.7825899720191956
+  },
+  {
+    "question": "RazorView ile PartialView arasındaki fark nedir?",
+    "answer": "**RazorView:**\n\n*   Tam sayfa.\n*   `_ViewStart.cshtml` ve düzenleri kullanır.\n*   Bağımsız bir URL'den erişilebilir.\n\n**PartialView:**\n\n*   Yeniden kullanılabilir HTML parçacığı.\n*   `_ViewStart.cshtml` ve düzenleri kullanmaz (genellikle).\n*   Başka bir RazorView içinde kullanılır.\n*   Tek başına URL'den erişilemez.\n",
+    "embedding_score": 0.7708771228790283
+  },
+  {
+    "question": "Kuru fasulye, partialview razor falan",
+    "answer": "Kuru fasulye yemeğini temsil eden bir partial view oluşturmak için Razor sözdizimini kullanmak, genellikle bir web uygulamasında yemeğin nasıl görüntüleneceğini tanımlamak anlamına gelir.\n\n**Temel Örnek:**\n\n```csharp\n@model KuruFasulyeModel\n\n<div>\n    <h3>@Model.Adı</h3>\n    <p>Malzemeler: @Model.Malzemeler</p>\n    <p>Pişirme Süresi: @Model.PişirmeSuresi</p>\n</div>\n```\n\n**Açıklama:**\n\n*   `@model KuruFasulyeModel`: Partial view'in alacağı modeli belirtir.\n*   `@Model.Adı`, `@Model.Malzemeler`, `...",
+    "embedding_score": 0.7226725816726685
+  },
+
+  
+  {
+    "question": "Makarna yapmak ve C# ile PartialView",
+    "answer": "Makarna yapmak ve C# ile PartialView konuları arasında bir bağlantı yok. Ancak C# ile PartialView kullanarak web uygulamalarında dinamik içerik gösterimi yapabilirsiniz. PartialView, bir sayfanın belirli bir bölümünü ayrı bir dosyadan veya controller action'dan alarak ana sayfaya eklemek için kullanılır. Bu sayede web uygulamanızın modüler yapısını koruyabilir ve kod tekrarını azaltabilirsiniz.",
+    "embedding_score": 0.7505986094474792
   }
 ]
