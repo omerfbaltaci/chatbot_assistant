@@ -20,11 +20,6 @@
     "embedding_score": 0.7654812335968018
   },
   {
-    "question": " MVC 4 ile MVC 5 arasındaki fark nedir?",
-    "answer": "Şu anda dış API'ye erişilemedi. Lütfen daha sonra tekrar deneyin.",
-    "embedding_score": 0.7688606381416321
-  },
-  {
     "question": "MVC5 ile gelen yenilikler nelerdir?",
     "answer": "MVC 5 ile gelen yenilikler:\n\n*   **Attribute Routing:** Controller ve action'ları URL'lere bağlamak için daha esnek bir yöntem.\n*   **Filter Override:** Global filtreleri geçersiz kılma özelliği.\n*   **One ASP.NET:** ASP.NET projelerini (Web Forms, MVC, Web API) tek bir projede birleştirme imkanı.\n*   **Bootstrap Entegrasyonu:** Daha iyi duyarlı tasarım için Bootstrap dahil edilmesi.\n*   **Authentication Filters:** Yetkilendirme işleminden önce çalışan özel filtreler.\n*   **ASP.NET Identity:** Y...",
     "embedding_score": 0.7571354508399963
