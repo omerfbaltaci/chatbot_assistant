@@ -23,5 +23,20 @@
     "question": " MVC 4 ile MVC 5 arasındaki fark nedir?",
     "answer": "Şu anda dış API'ye erişilemedi. Lütfen daha sonra tekrar deneyin.",
     "embedding_score": 0.7688606381416321
+  },
+  {
+    "question": "MVC5 ile gelen yenilikler nelerdir?",
+    "answer": "MVC 5 ile gelen yenilikler:\n\n*   **Attribute Routing:** Controller ve action'ları URL'lere bağlamak için daha esnek bir yöntem.\n*   **Filter Override:** Global filtreleri geçersiz kılma özelliği.\n*   **One ASP.NET:** ASP.NET projelerini (Web Forms, MVC, Web API) tek bir projede birleştirme imkanı.\n*   **Bootstrap Entegrasyonu:** Daha iyi duyarlı tasarım için Bootstrap dahil edilmesi.\n*   **Authentication Filters:** Yetkilendirme işleminden önce çalışan özel filtreler.\n*   **ASP.NET Identity:** Y...",
+    "embedding_score": 0.7571354508399963
+  },
+  {
+    "question": "MVC yapısı nedir?",
+    "answer": "MVC (Model-View-Controller), yazılım tasarımında kullanılan bir mimari desendir. Uygulamayı üç ana bileşene ayırır:\n\n*   **Model:** Veri ve iş mantığını yönetir.\n*   **View:** Kullanıcı arayüzünü (UI) görüntüler.\n*   **Controller:** Kullanıcı girdilerini işler ve Model ile View arasındaki iletişimi sağlar.\n\nBu ayrım, kodun daha düzenli, test edilebilir ve bakımı kolay olmasını sağlar.\n",
+    "embedding_score": 0.8739935159683228
+  },
+  {
+    "question": "MVC5 sonrasında MVC6 gelecek mi?",
+    "answer": "MVC 5'ten sonra MVC 6 gelmedi. Onun yerine ASP.NET Core MVC geldi. ASP.NET Core MVC, MVC 6'nın evrimleşmiş ve yeniden tasarlanmış halidir.\n",
+    "embedding_score": 0.7825899720191956
   }
 ]
