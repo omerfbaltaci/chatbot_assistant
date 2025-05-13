@@ -1,101 +1,75 @@
-## C# Chatbot Assistant
+# .NET Soru-Cevap Chatbotu
 
-This project is an embedding-based chatbot system designed to answer questions related to C#/.NET technologies. If a similar question is not found in the dataset, it queries the Google Gemini API to generate a short and technical response, then saves the new question-answer pair to the dataset and updates the embedding index.
+Bu proje, C# ve .NET teknolojileriyle ilgili teknik soruları cevaplayabilen bir embedding tabanlı chatbot uygulamasıdır. Kullanıcıdan gelen sorular, önceden hazırlanmış veri setindeki sorularla karşılaştırılır ve yeterli benzerlikte bir eşleşme bulunamazsa Gemini API ile yanıt oluşturulur. Yeni sorular ve yanıtlar genişletilmiş veri setine kaydedilir.
 
----
+### Özellikler
 
-## Features
+- FAISS ile hızlı benzerlik araması
+- Gemini API ile yeni soru-cevap üretimi
+- Genişletilebilir veri kümesi
+- Yeni sorular `extended_data.json` içine otomatik olarak kaydedilir
 
-```
-- Embedding-based similarity search using FAISS
-- Technical answer generation with Gemini 2.0 Flash
-- JSON-based data storage (questions and answers)
-- Automatic dataset updating
-- Keyword filtering to detect technical questions
-- Docker support
-```
+### Veri Seti
 
----
+* `data/main_data.json`: Önceden hazırlanmış C#/.NET teknik soru-cevapları
+* `data/extended_data.json`: Kullanıcıdan gelen yeni sorular ve yanıtlar
 
-## Project Structure
+## Kurulum
 
-```
-chatbot_assistant/
-├── data/
-│   ├── data.json
-│   └── extended_data.json
-├── src/
-│   └── app.py
-├── README.md
-├── requirements.txt
-├── venv/
-```
-
----
-
-## Installation (Manual)
-
-### 1. Set up virtual environment
+### 1. Ortamı Hazırlama (Manuel)
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows için: venv\Scripts\activate
 pip install -r requirements.txt
-```
+````
 
-### 2. Environment Variables
-
-Create a `.env` file and add your Gemini API key:
+`.env` dosyasına Gemini API anahtarınızı girin:
 
 ```
-GEMINI_API_KEY=your_api_key_here
+API_KEY=your-api-key
 ```
 
-### 3. Run the App
+Çalıştırmak için:
 
 ```bash
-python app.py
+python main.py
 ```
 
----
+### 2. Docker ile Çalıştırma
 
-## Running with Docker
+#### 1- "Dockerfile" İçeriği
 
-### 1. Create a Dockerfile
+Kök dizine (`chatbot_assistant/`) şu içeriğe sahip bir `Dockerfile` oluştur:
 
-Place the following `Dockerfile` in the root directory:
+```dockerfile
+# Python base image
+FROM python:3.10-slim
 
-```Dockerfile
-FROM python:3.11-slim
-
+# Çalışma dizini
 WORKDIR /app
 
-COPY . /app
+# Gerekli dosyaları kopyala
+COPY . .
 
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Gerekli paketleri yükle
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Ortam değişkeni (istenirse)
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python", "app.py"]
-```
+# Başlangıç komutu
+CMD ["python", "main.py"]
+````
 
-### 2. `requirements.txt`
-
-```txt
-faiss-cpu
-sentence-transformers
-python-dotenv
-google-generativeai
-numpy
-```
-
-### 3. Build and Run the Container
+#### 2- Docker Image Oluşturma
 
 ```bash
-docker build -t csharp-chatbot .
-docker run --env GEMINI_API_KEY=your_api_key_here -it csharp-chatbot
+docker build -t chatbot-assistant .
 ```
 
-> Note: You cannot directly pass the `.env` file to Docker. You must pass the API key using the `--env` parameter.
+#### 3- Container Çalıştırma
 
+```bash
+docker run -it --env API_KEY=your-api-key chatbot-assistant
+```
