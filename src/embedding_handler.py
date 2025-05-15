@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import faiss
 
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L12-v2')
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def get_embeddings(questions):
     return model.encode(questions, convert_to_numpy=True)
