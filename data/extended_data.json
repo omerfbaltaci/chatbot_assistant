@@ -58,5 +58,10 @@
     "question": "PartialView'i ne zaman ve neden oluşturmalıyım?",
     "answer": "PartialView, genellikle belirli bir view kontrolündeki tekrar eden veya bağımsız bir parçanın ayrı bir view dosyası olarak oluşturulması gerektiğinde kullanılır. Özellikle birden fazla view içinde kullanılacak ve tekrar kullanılabilir bir parça varsa PartialView oluşturmak mantıklı olabilir. Bu şekilde kod tekrarını azaltır, bakımı kolaylaştırır ve uygulamanın modülerliğini artırır.",
     "embedding_score": 0.7263858318328857
+  },
+  {
+    "question": "C# ile bir dosya nasıl okunur",
+    "answer": "Bir dosya C# ile StreamReader veya FileStream sınıfları kullanılarak okunabilir. StreamReader ile metin tabanlı dosyalar, FileStream ile ise her türlü dosya okunabilir. Dosya okuma işlemi `using` bloğu içerisinde yapılmalı ve okunan veriler işlenmelidir. Okuma yöntemi seçilirken dosyanın boyutu ve tipi göz önünde bulundurulmalıdır.",
+    "embedding_score": 0.8655228614807129
   }
 ]

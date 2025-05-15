@@ -6,7 +6,7 @@ client = OpenAI(api_key=API_KEY)
 def ask_llm(question):
     try:
         response = client.chat.completions.create(
-            model="gpt-4.1-nano",
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
                  "content": "Bir C#, .NET, .NET Core asistanı olarak kısa ve öz cevaplar ver. Başka bir konuda soru sorulursa cevap verme"},
