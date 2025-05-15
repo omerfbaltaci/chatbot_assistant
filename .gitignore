@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.cache/
+coverage/
+htmlcov/
+*.cover
+*.log
+*.pot
+*.pyc
+
+# Virtual envs
+venv/
+.venv/
+
+# IDE/editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.env.*
