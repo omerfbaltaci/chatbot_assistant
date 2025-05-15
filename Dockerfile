@@ -1,17 +1,18 @@
-# Temel Python imajı
 FROM python:3.10-slim
 
-# Çalışma dizinini oluştur
+# Gerekli sistem kütüphanelerini yükle
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Gerekli dosyaları kopyala
-COPY . .
+COPY requirements.txt .
 
-# Bağımlılıkları yükle
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Port aç (Uvicorn default: 8000)
+COPY . .
+
 EXPOSE 8000
 
-# Uygulamayı çalıştır
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
