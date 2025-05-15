@@ -1,11 +1,17 @@
+# Temel Python imajı
 FROM python:3.10-slim
 
+# Çalışma dizinini oluştur
 WORKDIR /app
 
+# Gerekli dosyaları kopyala
 COPY . .
 
+# Bağımlılıkları yükle
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV PYTHONUNBUFFERED=1
+# Port aç (Uvicorn default: 8000)
+EXPOSE 8000
 
-CMD ["python", "main.py"]
+# Uygulamayı çalıştır
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -2,7 +2,7 @@ import json
 import os
 
 technical_keywords = [
-"c#", ".net", "asp.net", "mvc", "razor", "entity framework", "asp",
+    "c#", ".net", "asp.net", "mvc", "razor", "entity framework", "asp",
     "viewbag", "viewdata", "controller", "model", "startup.cs", "configure", "linq",
     "taghelper", "dependency injection", "middleware", "async", "await", "partialview",
     "partial view",
