@@ -1,75 +1,51 @@
-# .NET Soru-Cevap Chatbotu
+# C#/.NET Teknik Chatbot
 
-Bu proje, C# ve .NET teknolojileriyle ilgili teknik soruları cevaplayabilen bir embedding tabanlı chatbot uygulamasıdır. Kullanıcıdan gelen sorular, önceden hazırlanmış veri setindeki sorularla karşılaştırılır ve yeterli benzerlikte bir eşleşme bulunamazsa Gemini API ile yanıt oluşturulur. Yeni sorular ve yanıtlar genişletilmiş veri setine kaydedilir.
+Bu proje, C# ve .NET teknolojileri hakkında teknik soruları yanıtlayan yapay zeka destekli bir chatbot sistemidir. Sorular, mevcut bir soru-cevap veri setiyle karşılaştırılır; yeterli benzerlik bulunamazsa OpenAI API üzerinden yeni cevaplar alınır ve sistem güncellenir.
 
-### Özellikler
+## Özellikler
 
-- FAISS ile hızlı benzerlik araması
-- Gemini API ile yeni soru-cevap üretimi
-- Genişletilebilir veri kümesi
-- Yeni sorular `extended_data.json` içine otomatik olarak kaydedilir
+- FAISS ile hızlı embedding tabanlı arama
+- Teknik sorgu kontrolü
+- Belirli benzerlik skorlarına göre karar ağacı
+- OpenAI GPT ile yanıt üretimi
+- JSON tabanlı veri güncelleme
+- FastAPI REST servisi
+- Ngrok ile internete açılabilir API yapısı
 
-### Veri Seti
+## Nasıl Çalıştırılır?
 
-* `data/main_data.json`: Önceden hazırlanmış C#/.NET teknik soru-cevapları
-* `data/extended_data.json`: Kullanıcıdan gelen yeni sorular ve yanıtlar
+1. Gerekli bağımlılıkları yükleyin:
+   ```bash
+   pip install -r requirements.txt
+    ````
 
-## Kurulum
+2. `.env` dosyanıza OpenAI API anahtarınızı ekleyin:
 
-### 1. Ortamı Hazırlama (Manuel)
+   ```
+   OPENAI_API_KEY=your-key-here
+   ```
 
-```bash
-python -m venv venv
-source venv/bin/activate  # Windows için: venv\Scripts\activate
-pip install -r requirements.txt
-````
+3. FastAPI sunucusunu başlatın:
 
-`.env` dosyasına Gemini API anahtarınızı girin:
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-```
-API_KEY=your-api-key
-```
+4. Sunucu çalışırken, local sunucunuzu ngrok ile tünelleyin:
 
-Çalıştırmak için:
+   ```bash
+   ngrok http 8000
+   ```
 
-```bash
-python main.py
-```
+5. Ngrok'un size verdiği HTTPS adresini, Landbot gibi platformlara webhook endpoint olarak tanımlayabilirsiniz.
 
-### 2. Docker ile Çalıştırma
+## API Kullanımı
 
-#### 1- "Dockerfile" İçeriği
+* `POST /ask`
+  Gövde:
 
-Kök dizine (`chatbot_assistant/`) şu içeriğe sahip bir `Dockerfile` oluştur:
-
-```dockerfile
-# Python base image
-FROM python:3.10-slim
-
-# Çalışma dizini
-WORKDIR /app
-
-# Gerekli dosyaları kopyala
-COPY . .
-
-# Gerekli paketleri yükle
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Ortam değişkeni (istenirse)
-ENV PYTHONUNBUFFERED=1
-
-# Başlangıç komutu
-CMD ["python", "main.py"]
-````
-
-#### 2- Docker Image Oluşturma
-
-```bash
-docker build -t chatbot-assistant .
-```
-
-#### 3- Container Çalıştırma
-
-```bash
-docker run -it --env API_KEY=your-api-key chatbot-assistant
-```
+  ```json
+  {
+    "question": "C# ile arayüz nasıl yapılır?"
+  }
+  ```

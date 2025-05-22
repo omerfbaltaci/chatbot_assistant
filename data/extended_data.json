@@ -44,11 +44,24 @@
     "answer": "Kuru fasulye yemeğini temsil eden bir partial view oluşturmak için Razor sözdizimini kullanmak, genellikle bir web uygulamasında yemeğin nasıl görüntüleneceğini tanımlamak anlamına gelir.\n\n**Temel Örnek:**\n\n```csharp\n@model KuruFasulyeModel\n\n<div>\n    <h3>@Model.Adı</h3>\n    <p>Malzemeler: @Model.Malzemeler</p>\n    <p>Pişirme Süresi: @Model.PişirmeSuresi</p>\n</div>\n```\n\n**Açıklama:**\n\n*   `@model KuruFasulyeModel`: Partial view'in alacağı modeli belirtir.\n*   `@Model.Adı`, `@Model.Malzemeler`, `...",
     "embedding_score": 0.7226725816726685
   },
-
-  
   {
     "question": "Makarna yapmak ve C# ile PartialView",
     "answer": "Makarna yapmak ve C# ile PartialView konuları arasında bir bağlantı yok. Ancak C# ile PartialView kullanarak web uygulamalarında dinamik içerik gösterimi yapabilirsiniz. PartialView, bir sayfanın belirli bir bölümünü ayrı bir dosyadan veya controller action'dan alarak ana sayfaya eklemek için kullanılır. Bu sayede web uygulamanızın modüler yapısını koruyabilir ve kod tekrarını azaltabilirsiniz.",
     "embedding_score": 0.7505986094474792
+  },
+  {
+    "question": "C# ile arayüz nasıl oluşturulur?",
+    "answer": "C# ile arayüz oluşturmak için genellikle Windows Forms veya WPF gibi arayüz teknolojileri kullanılır. Bu teknolojiler sayesinde kullanıcı arayüzü oluşturmak için gereken kontrolleri sürükle-bırak veya kodla ekleyerek tasarlayabilirsiniz. Ardından bu kontrolleri olaylarla ilişkilendirerek (event handling) arayüzün çalışma mantığını oluşturabilirsiniz. Başka bir seçenek olarak, C# web uygulamaları için ASP.NET teknolojileri kullanılabilir. Bu teknolojiler de arayüz oluşturma sürecinde HTML, CSS ve...",
+    "embedding_score": 0.8417789936065674
+  },
+  {
+    "question": "PartialView'i ne zaman ve neden oluşturmalıyım?",
+    "answer": "PartialView, genellikle belirli bir view kontrolündeki tekrar eden veya bağımsız bir parçanın ayrı bir view dosyası olarak oluşturulması gerektiğinde kullanılır. Özellikle birden fazla view içinde kullanılacak ve tekrar kullanılabilir bir parça varsa PartialView oluşturmak mantıklı olabilir. Bu şekilde kod tekrarını azaltır, bakımı kolaylaştırır ve uygulamanın modülerliğini artırır.",
+    "embedding_score": 0.7263858318328857
+  },
+  {
+    "question": "C# ile bir dosya nasıl okunur",
+    "answer": "Bir dosya C# ile StreamReader veya FileStream sınıfları kullanılarak okunabilir. StreamReader ile metin tabanlı dosyalar, FileStream ile ise her türlü dosya okunabilir. Dosya okuma işlemi `using` bloğu içerisinde yapılmalı ve okunan veriler işlenmelidir. Okuma yöntemi seçilirken dosyanın boyutu ve tipi göz önünde bulundurulmalıdır.",
+    "embedding_score": 0.8655228614807129
   }
 ]
